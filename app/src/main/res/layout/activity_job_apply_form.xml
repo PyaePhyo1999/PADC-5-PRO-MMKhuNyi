@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+          >
+
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/job_details_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <ImageView
+                    android:id="@+id/btn_back_press_nearest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="@drawable/ripple_white"
+                    android:padding="@dimen/margin_card_medium_2"
+                    android:src="@drawable/ic_arrow_back_white_24dp" />
+
+
+                <TextView
+                    android:id="@+id/tv_nearest_restaurants"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/btn_back_press_nearest"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_toRightOf="@id/btn_back_press_nearest"
+                    android:text="Job Apply Form"
+                    android:textColor="@color/white_full"
+                    android:textSize="@dimen/text_heading_1x" />
+
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/pale_black">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnHaveAlreadyAccount"
+            android:layout_marginLeft="@dimen/margin_large"
+            android:layout_marginRight="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:textColorHint="@color/primary">
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name*"
+                android:textColor="@color/white_full"
+                android:textColorHint="@color/primary" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/input_name"
+            android:layout_alignRight="@id/input_name"
+            android:layout_below="@id/input_name"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:textColorHint="@color/primary">
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email*"
+                android:textColor="@color/white_full"
+                android:textColorHint="@color/primary" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/input_email"
+            android:layout_alignRight="@id/input_email"
+            android:layout_below="@id/input_email"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:textColorHint="@color/primary">
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="phone*"
+                android:inputType="number"
+                android:textColor="@color/white_full"
+                android:textColorHint="@color/primary" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/input_email"
+            android:layout_alignRight="@id/input_email"
+            android:layout_below="@id/input_phone"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:textColorHint="@color/primary">
+
+            <EditText
+                android:id="@+id/et_register_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="Skill*"
+                android:inputType="textPassword"
+                android:textColor="@color/white_full"
+                android:textColorHint="@color/primary" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/input_email"
+            android:layout_alignRight="@id/input_email"
+            android:layout_below="@id/input_password"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:textColorHint="@color/primary">
+
+            <EditText
+                android:id="@+id/et_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Experience"
+                android:inputType="textPassword"
+                android:textColor="@color/white_full"
+                android:textColorHint="@color/primary" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/input_email"
+            android:layout_below="@id/input_confirm_password"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="Gender"
+            android:textColor="@color/primary"
+
+            />
+
+        <RadioGroup
+            android:id="@+id/rd_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/input_email"
+            android:layout_below="@id/tvGender"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textColor="@color/primary"
+
+
+                />
+
+            <RadioButton
+                android:id="@+id/rdFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="@color/primary"
+
+                />
+
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/input_name"
+            android:layout_alignRight="@id/input_name"
+            android:layout_below="@id/rd_gender"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@color/primary"
+            android:foreground="@drawable/ripple_white"
+            android:text="Apply"
+            android:textAllCaps="false"
+            android:textColor="@color/white_full" />
+
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

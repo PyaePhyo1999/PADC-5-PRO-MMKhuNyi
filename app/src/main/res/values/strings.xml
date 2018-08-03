@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KuuNyi</string>
+    <string name="action_settings">Settings</string>
+    <string name="job_desc">Maintains a clean, sanitary and safe health care environment by daily cleaning </string>
+    <string name="have_already_account">have already account</string>
+    <string name="forgot_password"><i><u>forgot password</u></i></string>
+    <string name="to_register"><i><u>user register</u></i></string>
+</resources>

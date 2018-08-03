@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white_full"
+    android:layout_margin="@dimen/margin_medium"
+    app:cardElevation="@dimen/margin_medium">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tvJobTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium_2"
+            android:layout_marginRight="@dimen/margin_xxxxlarge"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="House Keeping"
+            android:textColor="@color/black_full"
+            android:textSize="@dimen/text_heading_1x" />
+
+        <TextView
+            android:id="@+id/tvJobPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/tvJobTitle"
+            android:layout_marginRight="@dimen/margin_medium_2"
+            android:text="$ 2000"
+            android:textColor="@color/pale_black"
+            android:textSize="@dimen/text_regular_3x" />
+
+        <TextView
+            android:id="@+id/tvJobPostedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tvJobTitle"
+            android:layout_below="@id/tvJobTitle"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="12.6.2015"
+            android:textColor="@color/pale_black"
+            android:textSize="@dimen/text_regular_2x" />
+
+        <TextView
+            android:id="@+id/tvJobDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tvJobTitle"
+            android:layout_alignRight="@id/tvJobPrice"
+            android:layout_below="@id/tvJobPostedDate"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.2"
+            android:maxLines="3"
+            android:text="@string/job_desc"
+            android:textColor="@color/pale_black"
+            android:textSize="@dimen/text_regular_2x" />
+
+        <TextView
+            android:id="@+id/tvJobPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tvJobDesc"
+            android:layout_below="@id/tvJobDesc"
+            android:layout_marginRight="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:drawableLeft="@drawable/ic_access_time_black_24dp"
+            android:text="200 hours"
+            android:textColor="@color/pale_black"
+            android:textSize="@dimen/text_regular_2x" />
+
+        <TextView
+            android:id="@+id/tvJobLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/tvJobPeriod"
+            android:layout_below="@id/tvJobDesc"
+            android:layout_marginRight="@dimen/margin_medium_2"
+            android:drawableLeft="@drawable/ic_location_on_black_24dp"
+            android:text="Yangon"
+            android:textColor="@color/pale_black"
+            android:textSize="@dimen/text_regular_2x" />
+
+        <Button
+            android:id="@+id/btnApplyJob"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tvJobTitle"
+            android:layout_below="@id/tvJobPeriod"
+            android:layout_marginRight="@dimen/margin_medium_2"
+            android:text="Apply"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:textAllCaps="false"
+            android:background="@color/primary_dark"
+            android:textColor="@color/pale_black"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:foreground="@drawable/ripple_white"
+
+             />
+
+
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

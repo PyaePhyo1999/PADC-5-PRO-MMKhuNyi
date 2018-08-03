@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/primary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivJobImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/job_img"
+                    android:tint="#AA000000" />
+
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/job_details_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" >
+
+                <ImageView
+                    android:id="@+id/btn_back_press_nearest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:foreground="@drawable/ripple_white"
+                    android:padding="@dimen/margin_card_medium_2"
+                    android:src="@drawable/ic_arrow_back_white_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_nearest_restaurants"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/btn_back_press_nearest"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_toRightOf="@id/btn_back_press_nearest"
+                    android:text="Job Detail"
+                    android:textColor="@color/white_full"
+                    android:textSize="@dimen/text_heading_1x" />
+
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+
+                android:id="@+id/llJobTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_card_medium_2"
+                android:layout_marginTop="@dimen/margin_card_medium_2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Job Title   : "
+                    android:textColor="@color/pale_black"
+                    android:textSize="@dimen/text_regular_2x" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_card_medium_2"
+                    android:text="House Keeping"
+                    android:textColor="@color/black_full"
+                    android:textSize="@dimen/text_regular_2x" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/llJobTitle"
+                android:layout_below="@id/llJobTitle"
+                android:layout_marginTop="@dimen/margin_card_medium_2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location   : "
+                    android:textColor="@color/pale_black"
+                    android:textSize="@dimen/text_regular_2x" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_card_medium_2"
+                    android:text="Pazundaung"
+                    android:textColor="@color/black_full"
+                    android:textSize="@dimen/text_regular_2x" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/llJobTitle"
+                android:layout_below="@id/llLocation"
+                android:layout_marginTop="@dimen/margin_card_medium_2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payment   : "
+                    android:textColor="@color/pale_black"
+                    android:textSize="@dimen/text_regular_2x" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_card_medium_2"
+                    android:text="$ 2000"
+                    android:textColor="@color/black_full"
+                    android:textSize="@dimen/text_regular_2x" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPeriod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llPayment"
+                android:layout_marginLeft="@dimen/margin_card_medium_2"
+                android:layout_marginTop="@dimen/margin_card_medium_2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Period       : "
+                    android:textColor="@color/pale_black"
+                    android:textSize="@dimen/text_regular_2x" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_card_medium_2"
+                    android:text="300 hr"
+                    android:textColor="@color/black_full"
+                    android:textSize="@dimen/text_regular_2x" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvJobDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/llJobTitle"
+                android:layout_below="@id/llPeriod"
+                android:layout_marginTop="@dimen/margin_medium_3"
+                android:text="Job Description"
+                android:textColor="@color/black_full"
+                android:textSize="@dimen/text_heading_1x" />
+
+            <TextView
+
+                android:id="@+id/tvJobDetailDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/llJobTitle"
+                android:layout_below="@id/tvJobDesc"
+                android:layout_marginRight="@dimen/margin_card_medium_2"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/job_desc"
+                android:textColor="@color/pale_black"
+                android:textSize="@dimen/text_regular_2x" />
+
+            <Button
+                android:id="@+id/btnApplyDetailJob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tvJobDetailDesc"
+                android:layout_alignRight="@id/tvJobDetailDesc"
+                android:layout_below="@id/tvJobDetailDesc"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@color/primary_dark"
+                android:foreground="@drawable/ripple_white"
+                android:text="Apply Job"
+                android:textAllCaps="false"
+                android:textColor="@color/pale_black"
+
+                />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>
