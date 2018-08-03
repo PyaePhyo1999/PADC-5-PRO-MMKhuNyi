@@ -1,5 +1,6 @@
 package com.example.acer.kuunyi.data
 
+import android.arch.lifecycle.MutableLiveData
 import android.content.Context
 import com.example.acer.kuunyi.adapters.JobsListAdapter
 import com.example.acer.kuunyi.data.vos.JobTagsVO
@@ -17,54 +18,56 @@ import java.util.ArrayList
  */
 class JobModel private constructor(context: Context) {
 
-    private var mDatabaseReference: DatabaseReference?=null
+    private var mDatabaseReference: DatabaseReference? = null
     private lateinit var mJobsFeedDR: DatabaseReference
 
-    private var mFirebaseAuth: FirebaseAuth?=null
-    private var mFirebaseUser: FirebaseUser?=null
+    private var mFirebaseAuth: FirebaseAuth? = null
+    private var mFirebaseUser: FirebaseUser? = null
+
     companion object {
-        private var objInstance : JobModel? =null
-        fun getInstance() : JobModel{
-            if (objInstance == null){
+        private var objInstance: JobModel? = null
+        fun getInstance(): JobModel {
+            if (objInstance == null) {
                 throw RuntimeException("JobsModel is  being invoked before initializing")
             }
             val i = objInstance
             return i!!
 
         }
-        fun initJobsAppModel(context : Context) {
+
+        fun initJobsAppModel(context: Context) {
             objInstance = JobModel(context)
         }
     }
+
     init {
         mDatabaseReference = FirebaseDatabase.getInstance().reference
         mFirebaseAuth = FirebaseAuth.getInstance()
         mFirebaseUser = mFirebaseAuth!!.currentUser
     }
 
-    fun loadJobsList(){
+    fun loadJobsList(mJobsListLd: MutableLiveData<List<JobsVO>>, errorLd: MutableLiveData<String>) {
         mJobsFeedDR = mDatabaseReference!!.child(AppConstant.JOBS_POST)
-        mJobsFeedDR.addValueEventListener(object: ValueEventListener{
-            override fun onCancelled(error : DatabaseError?) {
+        mJobsFeedDR.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError?) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-            override fun onDataChange(dataSnapshot : DataSnapshot) {
-               if (dataSnapshot != null){
-                   var jobsList = ArrayList<JobsVO>()
-                   dataSnapshot.children.forEach { snapShot : DataSnapshot ->
-                       var jobs : JobsVO = snapShot.getValue(JobsVO::class.java)!!
-                       jobsList.add(jobs)
-                   }
-                   val event = JobsEvent.JobsListEvent().JobsListLoadedEvent(jobsList)
-                   EventBus.getDefault().post(event)
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot != null) {
+                    var jobsList = ArrayList<JobsVO>()
+                    dataSnapshot?.children?.forEach { snapShot: DataSnapshot ->
+                        var jobs: JobsVO = snapShot.getValue(JobsVO::class.java)!!
+                        jobsList.add(jobs)
 
-               }
+                    }
+
+                    mJobsListLd.value = jobsList
+                }
             }
 
         })
 
 
-
-}
+    }
 }

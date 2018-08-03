@@ -1,5 +1,8 @@
 package com.example.acer.kuunyi.activities
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -12,17 +15,21 @@ import com.example.acer.kuunyi.R
 import com.example.acer.kuunyi.adapters.JobsListAdapter
 import com.example.acer.kuunyi.components.SmartScrollListener
 import com.example.acer.kuunyi.data.JobModel
+import com.example.acer.kuunyi.data.vos.JobsVO
 import com.example.acer.kuunyi.events.JobsEvent
+import com.example.acer.kuunyi.mvp.presenters.JobsListPresenter
+import com.example.acer.kuunyi.mvp.views.JobsListView
 
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import java.util.*
 
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity() ,JobsListView {
 
-
+        private lateinit var mPresenter : JobsListPresenter
         private  lateinit var  mJobsAdapter : JobsListAdapter
         private lateinit var mSmartScrollListener : SmartScrollListener
 
@@ -31,6 +38,8 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        mPresenter= ViewModelProviders.of(this).get(JobsListPresenter::class.java)
+        mPresenter.initPresenter(this)
         mSmartScrollListener = SmartScrollListener(object :SmartScrollListener.SmartScrollListener{
             override fun onListEndReach() {
                 Snackbar.make(rvJobsList,"Loading More Data", Snackbar.LENGTH_LONG).show()
@@ -39,24 +48,20 @@ class MainActivity : BaseActivity() {
             }
 
         })
+        mPresenter.getJobListLd().observe(this, Observer<List<JobsVO>> { t -> displayJobsListData(t!!) })
 
         mJobsAdapter  = JobsListAdapter(applicationContext)
         rvJobsList.layoutManager = LinearLayoutManager(applicationContext)
         rvJobsList.adapter = mJobsAdapter
         rvJobsList.addOnScrollListener(mSmartScrollListener)
 
-        JobModel.getInstance().loadJobsList()
+
     }
 
-    override fun onStart() {
-        super.onStart()
-        EventBus.getDefault().register(this)
+    private fun displayJobsListData(jobsList : List<JobsVO>){
+        mJobsAdapter.appendNewData(jobsList)
     }
 
-    override fun onStop() {
-        super.onStop()
-        EventBus.getDefault().unregister(this)
-    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -75,7 +80,9 @@ class MainActivity : BaseActivity() {
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun loadedJobsList(event : JobsEvent.JobsListEvent){
+        Log.d("abc","data" + event.getJobsList().size)
         mJobsAdapter.appendNewData(event.getJobsList())
+
 
     }
 }

@@ -17,7 +17,7 @@ class JobsItemViewHolder(itemView : View) : BaseViewHolder<JobsVO>(itemView) {
     }
 
     override fun setData(data: JobsVO) {
-       itemView.tvJobTitle!!.text = data.jobTags!![1].tag
-        itemView.tvJobDesc.text=data.fullDesc
+
+
     }
 }

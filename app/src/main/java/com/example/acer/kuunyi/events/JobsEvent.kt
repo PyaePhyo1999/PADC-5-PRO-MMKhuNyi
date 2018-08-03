@@ -10,13 +10,13 @@ import com.example.acer.kuunyi.data.vos.JobsVO
 class JobsEvent {
        companion object
            class JobsListEvent(){
-               private var jobsList: List<JobsVO>?=null
+               private var jobsList: MutableList<JobsVO>?=null
 
-               fun JobsListLoadedEvent(jobsListData : List<JobsVO>) {
+               fun JobListLoadedEvent(jobsListData : MutableList<JobsVO>) {
                    this.jobsList = jobsListData
                }
 
-               fun getJobsList(): List<JobsVO> {
+               fun getJobsList(): MutableList<JobsVO> {
                    return jobsList!!
                }
            }

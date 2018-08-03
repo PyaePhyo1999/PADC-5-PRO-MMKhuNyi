@@ -10,7 +10,7 @@ import java.util.ArrayList
  * Created by Acer on 7/31/2018.
  */
 abstract class BaseAdapter<T,W>(context : Context): RecyclerView.Adapter<BaseViewHolder<W>>() {
-    protected var mData: List<W>? = null
+    private var mData: MutableList<W>? = null
     protected var mLayoutInflator: LayoutInflater
 
     val items: List<W>
@@ -32,13 +32,14 @@ abstract class BaseAdapter<T,W>(context : Context): RecyclerView.Adapter<BaseVie
         return mData!!.size
     }
 
-    fun setNewData(newData: List<W>) {
+    fun setNewData(newData: MutableList<W>) {
         mData = newData
         notifyDataSetChanged()
     }
 
     fun appendNewData(newData: List<W>) {
-
+        mData!!.addAll(newData)
+        notifyDataSetChanged()
     }
 
     fun getItemAt(position: Int): W? {

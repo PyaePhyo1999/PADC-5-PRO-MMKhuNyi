@@ -16,12 +16,10 @@ import java.util.*
  */
 class JobsListAdapter(context :Context) : BaseAdapter<JobsItemViewHolder, JobsVO>(context ) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<JobsVO> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobsItemViewHolder {
         var view = mLayoutInflator.inflate(R.layout.item_jobs_list,parent,false)
         return JobsItemViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder<JobsVO>, position: Int) {
-        super.onBindViewHolder(holder, position)
-    }
+
 }
