@@ -38,12 +38,12 @@
                 app:layout_collapseMode="pin" >
 
                 <ImageView
-                    android:id="@+id/btn_back_press_nearest"
+                    android:id="@+id/btnBackDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_medium"
                     android:foreground="@drawable/ripple_white"
-                    android:padding="@dimen/margin_card_medium_2"
+                    android:padding="@dimen/margin_medium"
                     android:src="@drawable/ic_arrow_back_white_24dp" />
 
                 <TextView

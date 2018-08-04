@@ -7,10 +7,11 @@ import com.example.acer.kuunyi.viewholders.BaseViewHolder
 import java.util.ArrayList
 
 /**
- * Created by Acer on 7/31/2018.
+ * Created by Acer on 8/3/2018.
  */
-abstract class BaseAdapter<T,W>(context : Context): RecyclerView.Adapter<BaseViewHolder<W>>() {
-    private var mData: MutableList<W>? = null
+abstract class BaseRecyclerAdapter <T,W>(context : Context) : RecyclerView.Adapter<BaseViewHolder<W>>() {
+
+    protected var mData: MutableList<W>? = null
     protected var mLayoutInflator: LayoutInflater
 
     val items: List<W>
@@ -24,7 +25,7 @@ abstract class BaseAdapter<T,W>(context : Context): RecyclerView.Adapter<BaseVie
         mLayoutInflator = LayoutInflater.from(context)
     }
 
-   override fun onBindViewHolder(holder: BaseViewHolder<W>, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder<W>, position: Int) {
         holder.setData(mData!![position])
     }
 
@@ -48,10 +49,12 @@ abstract class BaseAdapter<T,W>(context : Context): RecyclerView.Adapter<BaseVie
     }
 
     fun removeData(data: W) {
+        mData!!.remove(data)
         notifyDataSetChanged()
     }
 
     fun addNewData(data: W) {
+        mData!!.add(data)
         notifyDataSetChanged()
     }
 

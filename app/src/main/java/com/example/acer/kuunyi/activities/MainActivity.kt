@@ -3,6 +3,8 @@ package com.example.acer.kuunyi.activities
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -19,6 +21,7 @@ import com.example.acer.kuunyi.data.vos.JobsVO
 import com.example.acer.kuunyi.events.JobsEvent
 import com.example.acer.kuunyi.mvp.presenters.JobsListPresenter
 import com.example.acer.kuunyi.mvp.views.JobsListView
+import com.example.acer.kuunyi.utils.AppConstant
 
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.EventBus
@@ -29,7 +32,17 @@ import java.util.*
 
 class MainActivity : BaseActivity() ,JobsListView {
 
-        private lateinit var mPresenter : JobsListPresenter
+    companion object {
+        fun newIntent(context : Context) : Intent{
+            return Intent(context,MainActivity::class.java)
+        }
+    }
+    override fun onLaunchDetailJob(JobsId : Int) {
+        val intent = JobDetailActivity.newIntent(applicationContext,JobsId)
+        startActivity(intent)
+    }
+
+    private lateinit var mPresenter : JobsListPresenter
         private  lateinit var  mJobsAdapter : JobsListAdapter
         private lateinit var mSmartScrollListener : SmartScrollListener
 
@@ -50,7 +63,7 @@ class MainActivity : BaseActivity() ,JobsListView {
         })
         mPresenter.getJobListLd().observe(this, Observer<List<JobsVO>> { t -> displayJobsListData(t!!) })
 
-        mJobsAdapter  = JobsListAdapter(applicationContext)
+        mJobsAdapter  = JobsListAdapter(applicationContext,mPresenter)
         rvJobsList.layoutManager = LinearLayoutManager(applicationContext)
         rvJobsList.adapter = mJobsAdapter
         rvJobsList.addOnScrollListener(mSmartScrollListener)
@@ -77,11 +90,8 @@ class MainActivity : BaseActivity() ,JobsListView {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
-    }
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun loadedJobsList(event : JobsEvent.JobsListEvent){
-        Log.d("abc","data" + event.getJobsList().size)
-        mJobsAdapter.appendNewData(event.getJobsList())
+
+
 
 
     }
