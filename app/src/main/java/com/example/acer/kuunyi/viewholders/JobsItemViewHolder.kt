@@ -21,6 +21,12 @@ class JobsItemViewHolder(itemView : View,private val mDelegate: JobsListDelegate
     override fun setData(data: JobsVO) {
         mData = data
         itemView.tvJobTitle.text = data.jobTags!![0].tag
+        itemView.tvJobPostedDate.text=data.postedDate
+        itemView.tvJobDesc.text = data.shortDesc
+        itemView.tvJobPeriod.text = ""+data.jobDuration!!.totalWorkingDays +"days"
+        itemView.tvJobLocation.text=data.location
+        itemView.tvJobPrice.text=""+ data.offerAmount!!.amount+" Kyats "+ data.offerAmount!!.duration
+
 
 
     }

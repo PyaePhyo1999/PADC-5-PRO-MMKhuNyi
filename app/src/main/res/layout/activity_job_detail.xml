@@ -10,7 +10,7 @@
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:fitsSystemWindows="true"
             app:contentScrim="@color/primary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -20,7 +20,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/ivJobImage"
+                    android:id="@+id/ivJobDetailImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -92,6 +92,7 @@
                     android:textSize="@dimen/text_regular_2x" />
 
                 <TextView
+                    android:id="@+id/tvJobDetailTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_card_medium_2"
@@ -117,6 +118,7 @@
                     android:textSize="@dimen/text_regular_2x" />
 
                 <TextView
+                    android:id="@+id/tvJobDetailLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_card_medium_2"
@@ -142,6 +144,7 @@
                     android:textSize="@dimen/text_regular_2x" />
 
                 <TextView
+                    android:id="@+id/tvJobDetailPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_card_medium_2"
@@ -151,7 +154,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llPeriod"
+                android:id="@+id/llStartDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/llPayment"
@@ -162,15 +165,42 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Period       : "
+                    android:text="Start Date : "
                     android:textColor="@color/pale_black"
                     android:textSize="@dimen/text_regular_2x" />
 
                 <TextView
+                    android:id="@+id/tvJobDetailStartDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_card_medium_2"
-                    android:text="300 hr"
+                    android:text="today"
+                    android:textColor="@color/black_full"
+                    android:textSize="@dimen/text_regular_2x" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llEndDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llStartDate"
+                android:layout_marginLeft="@dimen/margin_card_medium_2"
+                android:layout_marginTop="@dimen/margin_card_medium_2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="End Date   : "
+                    android:textColor="@color/pale_black"
+                    android:textSize="@dimen/text_regular_2x" />
+
+                <TextView
+                    android:id="@+id/tvJobDetailEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_card_medium_2"
+                    android:text="tomorrow"
                     android:textColor="@color/black_full"
                     android:textSize="@dimen/text_regular_2x" />
             </LinearLayout>
@@ -180,7 +210,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@id/llJobTitle"
-                android:layout_below="@id/llPeriod"
+                android:layout_below="@id/llEndDate"
                 android:layout_marginTop="@dimen/margin_medium_3"
                 android:text="Job Description"
                 android:textColor="@color/black_full"

@@ -20,8 +20,14 @@ import kotlinx.android.synthetic.main.item_jobs_list.*
  */
 class JobDetailActivity : BaseActivity(),JobsDetailView {
 
-    private fun displayJobsDetail(Job: JobsVO) {
-        tvJobDetailDesc.text= Job.fullDesc
+    private fun displayJobsDetail(job: JobsVO) {
+        tvJobDetailTitle.text = job.jobTags!![0].tag
+        tvJobDetailDesc.text= job.fullDesc
+        tvJobDetailLocation.text = job.location
+        tvJobDetailStartDate.text= job.jobDuration!!.jobStartDate
+        tvJobDetailEndDate.text= job.jobDuration!!.jobEndDate
+        tvJobDetailPrice.text= ""+job.offerAmount!!.amount+" Kyats "+ job.offerAmount!!.duration
+
     }
 
     private lateinit var mPresenter : JobsDetailPresenter
