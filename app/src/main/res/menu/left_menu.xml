@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuJobList"
+        android:checked="true"
+        android:icon="@drawable/ic_list_black_24dp"
+        android:title="Job List"></item>
+
+    <item
+        android:id="@+id/ApplyJobList"
+        android:icon="@drawable/ic_filter_list_black_24dp"
+        android:title="Apply Job"></item>
+
+</menu>

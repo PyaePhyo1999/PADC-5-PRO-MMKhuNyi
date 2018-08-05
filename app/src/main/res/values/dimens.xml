@@ -1,4 +1,13 @@
 <resources>
+
+    <dimen name="user_picture_medium_height">45dp</dimen>
+    <dimen name="user_picture_medium_width">45dp</dimen>
+    <dimen name="navigation_background_height">200dp</dimen>
+    <dimen name="user_picture_height">90dp</dimen>
+    <dimen name="user_picture_width">90dp</dimen>
+
+
+
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_card_medium">6dp</dimen>
