@@ -1,6 +1,8 @@
 package com.example.acer.kuunyi.viewholders
 
 import android.view.View
+import com.bumptech.glide.Glide
+import com.example.acer.kuunyi.R
 import com.example.acer.kuunyi.data.vos.HomeVO
 import com.example.acer.kuunyi.data.vos.JobTagsVO
 import com.example.acer.kuunyi.data.vos.JobsVO
@@ -20,12 +22,19 @@ class JobsItemViewHolder(itemView : View,private val mDelegate: JobsListDelegate
 
     override fun setData(data: JobsVO) {
         mData = data
-        itemView.tvJobTitle.text = data.jobTags!![0].tag
         itemView.tvJobPostedDate.text=data.postedDate
         itemView.tvJobDesc.text = data.shortDesc
-        itemView.tvJobPeriod.text = ""+data.jobDuration!!.totalWorkingDays +"days"
-        itemView.tvJobLocation.text=data.location
-        itemView.tvJobPrice.text=""+ data.offerAmount!!.amount+" Kyats "+ data.offerAmount!!.duration
+        if (!data.image!!.isEmpty()){
+            Glide.with(itemView.context)
+                    .load(data.image)
+                    .placeholder(R.drawable.placeholder_news_three)
+                    .error(R.drawable.placeholder_news_three)
+                    .into(itemView.ivJobImage)
+        }
+
+//        itemView.tvJobPeriod.text = ""+data.jobDuration!!.totalWorkingDays +"days"
+//        itemView.tvJobLocation.text=data.location
+//        itemView.tvJobPrice.text=""+ data.offerAmount!!.amount+" Kyats "+ data.offerAmount!!.duration
 
 
 

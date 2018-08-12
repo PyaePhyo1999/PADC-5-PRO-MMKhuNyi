@@ -21,8 +21,8 @@ class JobsVO {
     @SerializedName("genderForJob")
     var genderForJob: Int? = null
 
-    @SerializedName("images")
-    var images: List<String>? = null
+    @SerializedName("image")
+    var image : String?=null
 
     @SerializedName("importantNotes")
     var importantNotes: List<String>? = null
@@ -36,11 +36,13 @@ class JobsVO {
     @SerializedName("jobDuration")
     var jobDuration: JobsDurationVO? = null
 
+
     @SerializedName("jobPostId")
     var jobPostId: Int? = null
 
     @SerializedName("jobTags")
     var jobTags: List<JobTagsVO>? = null
+    get() = if (field==null) ArrayList() else field
 
     @SerializedName("location")
     var location: String? = null
@@ -71,6 +73,20 @@ class JobsVO {
 
     @SerializedName("shortDesc")
     var shortDesc: String? = null
+
+
+    companion object {
+        fun jobFeed(shortDesc : String,image: String) : JobsVO {
+            val jobs = JobsVO()
+            jobs.shortDesc = shortDesc
+            jobs.image=image
+//            jobs.offerAmount!!.amount = price
+//            jobs.offerAmount!!.duration = duration
+            jobs.postedDate= (System.currentTimeMillis()/1000).toString()
+
+            return jobs
+        }
+    }
 
 
 

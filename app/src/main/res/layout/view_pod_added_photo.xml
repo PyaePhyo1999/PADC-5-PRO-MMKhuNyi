@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.acer.kuunyi.viewpods.AddedPhotoViewPod xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/items_photo_size"
+    android:layout_height="@dimen/items_photo_size"
+    android:layout_marginRight="@dimen/margin_small"
+    android:background="@drawable/bg_rounded">
+
+    <ImageView
+        android:id="@+id/ivAddedPhoto"
+        android:layout_width="@dimen/items_photo_size"
+        android:layout_height="@dimen/items_photo_size" />
+
+    <ImageView
+        android:id="@+id/ivRemovePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_alignParentRight="true"
+        android:background="@color/white_overlay_light"
+        android:clickable="true"
+        android:foreground="@drawable/ripple_primary"
+        android:padding="@dimen/margin_medium"
+        android:src="@drawable/ic_cancel_accent_24dp" />
+
+    <ImageView
+        android:id="@+id/ivEnlargePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white_overlay_light"
+        android:clickable="true"
+        android:foreground="@drawable/ripple_primary"
+        android:padding="@dimen/margin_medium"
+        android:src="@drawable/ic_aspect_ratio_accent_24dp" />
+
+</com.example.acer.kuunyi.viewpods.AddedPhotoViewPod>

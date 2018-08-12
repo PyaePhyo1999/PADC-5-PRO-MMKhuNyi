@@ -5,4 +5,18 @@
     <string name="have_already_account">have already account</string>
     <string name="forgot_password"><i><u>forgot password</u></i></string>
     <string name="to_register"><i><u>user register</u></i></string>
+    <string name="btn_add_post">Add Post</string>
+    <string name="msg_generic_no_data">No Data to Display</string>
+    <string name="invitation_title">Join KuNyi</string>
+    <string name="invitation_message">Be informed on the new job that matter to Myanmar people</string>
+    <string name="invitation_cta">I want to join</string>
+    <string name="launcher_name">KuNyi</string>
+    <string name="screen_title_newsfeed">KuNyi (jobs for Myanmar people)</string>
+    <string name="noti_action_save_news">Save News</string>
+    <string name="feed_action_love">Love</string>
+    <string name="action_invite_to_app">Invite to App</string>
+
+
+
+
 </resources>
