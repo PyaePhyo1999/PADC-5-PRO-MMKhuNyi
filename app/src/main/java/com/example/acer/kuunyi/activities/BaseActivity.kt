@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.activity_login.*
  * Created by Acer on 7/31/2018.
  */
 open class BaseActivity : AppCompatActivity() , GoogleApiClient.OnConnectionFailedListener{
+
     var mGoogleApiClient : GoogleApiClient? = null
 
     override fun onConnectionFailed(p0: ConnectionResult) {

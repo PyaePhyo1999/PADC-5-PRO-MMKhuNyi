@@ -60,16 +60,14 @@ class JobModel private constructor(context: Context) {
     }
 
     fun getJobsId (jobsId : Int): JobsVO? {
-        if (jobsList!=null){
-            jobsList
-                    .filter { it.jobPostId!! == jobsId }
-                    .forEach { return it }
-        }
+        jobsList
+                .filter { it.jobPostId!! == jobsId }
+                .forEach { return it }
          return null
 
     }
 
-    fun loadJobsList(mJobsListLd: MutableLiveData<List<JobsVO>>, errorLd: MutableLiveData<String>) {
+    fun loadJobsList(mJobsListLd: MutableLiveData<MutableList<JobsVO>>, errorLd: MutableLiveData<String>) {
         mJobsFeedDR = mDatabaseReference!!.child(AppConstant.JOBS_POST)
         mJobsFeedDR.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError?) {
@@ -77,16 +75,14 @@ class JobModel private constructor(context: Context) {
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                if (dataSnapshot != null) {
 
-                    dataSnapshot?.children?.forEach { snapShot: DataSnapshot ->
-                        var jobs: JobsVO = snapShot.getValue(JobsVO::class.java)!!
+                dataSnapshot.children?.forEach { snapShot: DataSnapshot ->
+                        val jobs: JobsVO = snapShot.getValue(JobsVO::class.java)!!
                         jobsList.add(jobs)
 
-                    }
-
-                    mJobsListLd.value = jobsList
                 }
+
+                mJobsListLd.value = jobsList
             }
 
         })

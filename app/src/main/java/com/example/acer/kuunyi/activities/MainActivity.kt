@@ -82,6 +82,7 @@ class MainActivity : BaseActivity(), JobsListView {
         initRemoteConfig()
         fetchRemoteConfig()
 
+
         fab.setOnClickListener {
             var intent = JobPostActivity.newIntent(applicationContext)
             startActivity(intent)
@@ -105,11 +106,12 @@ class MainActivity : BaseActivity(), JobsListView {
             }
 
         })
-        mPresenter.getJobListLd().observe(this, Observer<List<JobsVO>> { t -> displayJobsListData(t!!) })
+        mPresenter.getJobListLd().observe(this, Observer<MutableList<JobsVO>> { t -> displayJobsListData(t!!) })
 
         mJobsAdapter = JobsListAdapter(applicationContext, mPresenter)
         rvJobsList.layoutManager = LinearLayoutManager(applicationContext)
         rvJobsList.adapter = mJobsAdapter
+
         rvJobsList.addOnScrollListener(mSmartScrollListener)
         val bundle = intent.extras
         if (bundle != null) {
@@ -153,8 +155,9 @@ class MainActivity : BaseActivity(), JobsListView {
         startActivityForResult(intent, AppConstant.RC_INVITE_TO_APP)
     }
 
-    private fun displayJobsListData(jobsList: List<JobsVO>) {
-        mJobsAdapter.appendNewData(jobsList)
+    private fun displayJobsListData(jobsList: MutableList<JobsVO>) {
+        mJobsAdapter.clearData()
+        mJobsAdapter.setNewData(jobsList)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

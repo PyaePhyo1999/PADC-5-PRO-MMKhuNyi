@@ -15,14 +15,14 @@ class JobsListPresenter : BasePresenter<JobsListView>(),JobsListDelegate {
        mView.onLaunchDetailJob(job.jobPostId!!)
     }
 
-    private lateinit var jobListLd : MutableLiveData<List<JobsVO>>
+    private lateinit var jobListLd : MutableLiveData<MutableList<JobsVO>>
 
     override fun initPresenter(mView: JobsListView) {
         super.initPresenter(mView)
         jobListLd = MutableLiveData()
         JobModel.getInstance().loadJobsList(jobListLd,mErrorLd)
     }
-    fun getJobListLd() : LiveData<List<JobsVO>>{
+    fun getJobListLd() : LiveData<MutableList<JobsVO>>{
         return jobListLd
     }
 }

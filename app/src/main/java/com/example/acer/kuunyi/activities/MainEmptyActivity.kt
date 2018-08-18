@@ -3,6 +3,7 @@ package com.example.acer.kuunyi.activities
 import android.os.Bundle
 import okhttp3.internal.Util
 import android.content.Intent
+import com.example.acer.kuunyi.data.JobModel
 import com.example.acer.kuunyi.utils.AppConstant
 import com.google.firebase.iid.FirebaseInstanceId
 
@@ -13,13 +14,17 @@ import com.google.firebase.iid.FirebaseInstanceId
 class MainEmptyActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val activityIntent : Intent = if (FirebaseInstanceId.getInstance().token != null) {
-            Intent(this, MainActivity::class.java)
-        } else {
-            Intent(this, LoginActivity::class.java)
+        if (JobModel.getInstance().isUserLogin())
+        {
+            startNewActivity()
+        }
+        else{
+            val activityIntent = LoginActivity.newIntent(applicationContext)
+            startActivity(activityIntent)
         }
 
-        startActivity(activityIntent)
+
         finish()
     }
+
 }
